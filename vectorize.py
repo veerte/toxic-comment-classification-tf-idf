@@ -13,7 +13,7 @@ nltk.download('punkt')
 
 print("loading data")
 x_train, y_train, x_test, y_test = get_comments()
-x = x_train[:100]
+x = x_train
 
 def cleanfunc(x):
     return clean(contractions.fix(x),
@@ -75,7 +75,7 @@ with open('vectorizer.pickle', 'wb') as f:
     pickle.dump(vectorizer, f)
 
 def vectorize(t):
-    vectorizer.transform([t])
+    return vectorizer.transform([t])
 
 print("vectorizing stemmed comments")
 
